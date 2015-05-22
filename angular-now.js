@@ -12,3 +12,9 @@ function View(options) {
     };
 }
 exports.View = View;
+var angularNow;
+(function (angularNow) {
+    function module(name, dependencies) {
+    }
+    angularNow.module = module;
+})(angularNow = exports.angularNow || (exports.angularNow = {}));
