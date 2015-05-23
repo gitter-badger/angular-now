@@ -13,8 +13,8 @@ export function Component(options:IComponentOptions){
 }
 
 interface IViewOptions {
-	template: string;
-	templateUrl: string;
+	template?: string;
+	templateUrl?: string;
 }
 export function View(options:IViewOptions){
 	return function(target: Function){
@@ -38,7 +38,7 @@ class AngularNowComponent {
 	constructor(private component: Function){
 		this.componentOptions = Reflect.getMetadata("Component", component.constructor);
 		this.viewOptions = Reflect.getMetadata("View", component.constructor);
-		this.name = component.constructor.name;
+		this.name = component.constructor['name'];
 	}
 	
 	public bootstrap(){
