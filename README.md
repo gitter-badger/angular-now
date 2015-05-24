@@ -1,6 +1,8 @@
 # angular-now
 ----
 
+[![Join the chat at https://gitter.im/SnareChops/angular-now](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SnareChops/angular-now?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Angular Now is a migration strategy for writing Angular 2 applications now.
 
 ##Components
