@@ -1,6 +1,6 @@
 /// <reference path="node_modules/reflect-metadata/reflect-metadata.d.ts" />
-require("reflect-metadata");
-var angular;
+//import "node_modules/reflect-metadata/Reflect";
+require("bower_components/angular/angular");
 function Component(options) {
     return function (target) {
         Reflect.defineMetadata("Component", options, target);
@@ -20,6 +20,10 @@ var AngularNowModule = (function () {
     }
     AngularNowModule.prototype.component = function (comp) {
         var component = new AngularNowComponent(comp);
+        console.log(component);
+        console.log(this.name);
+        console.log(this.dependencies);
+        console.log(angular);
         angular.module(this.name, this.dependencies).controller(component.name, component.bootstrap());
     };
     return AngularNowModule;
@@ -27,9 +31,9 @@ var AngularNowModule = (function () {
 var AngularNowComponent = (function () {
     function AngularNowComponent(component) {
         this.component = component;
-        this.componentOptions = Reflect.getMetadata("Component", component.constructor);
-        this.viewOptions = Reflect.getMetadata("View", component.constructor);
-        this.name = component.constructor['name'];
+        this.componentOptions = Reflect.getMetadata("Component", component);
+        this.viewOptions = Reflect.getMetadata("View", component);
+        this.name = ('' + component).split('function ')[1].split('(')[0];
     }
     AngularNowComponent.prototype.bootstrap = function () {
     };

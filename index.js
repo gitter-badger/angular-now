@@ -26,3 +26,4 @@ var MyAppComponent = (function () {
     ], MyAppComponent);
     return MyAppComponent;
 })();
+angular_now_1.angularNow.module('myApp', []).component(MyAppComponent);

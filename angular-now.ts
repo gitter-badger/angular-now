@@ -1,8 +1,10 @@
 /// <reference path="node_modules/reflect-metadata/reflect-metadata.d.ts" />
 
-import "reflect-metadata";
+//import "node_modules/reflect-metadata/Reflect";
+import "bower_components/angular/angular";
 
-var angular: any;
+//var angular: any = angular || {};
+declare var angular;
 interface IComponentOptions {
 	selector:string;
 }
@@ -27,7 +29,11 @@ class AngularNowModule {
 	
 	public component(comp: Function){
 		var component = new AngularNowComponent(comp);
-		angular.module(this.name, this.dependencies).controller(component.name, component.bootstrap())
+		console.log(component);
+		console.log(this.name);
+		console.log(this.dependencies);
+		console.log(angular);
+		angular.module(this.name, this.dependencies).directive(component.name, component.bootstrap())
 	}
 }
 
@@ -36,9 +42,9 @@ class AngularNowComponent {
 	public componentOptions: IComponentOptions;
 	public viewOptions: IViewOptions;
 	constructor(private component: Function){
-		this.componentOptions = Reflect.getMetadata("Component", component.constructor);
-		this.viewOptions = Reflect.getMetadata("View", component.constructor);
-		this.name = component.constructor['name'];
+		this.componentOptions = Reflect.getMetadata("Component", component);
+		this.viewOptions = Reflect.getMetadata("View", component);
+		this.name = (''+component).split('function ')[1].split('(')[0];
 	}
 	
 	public bootstrap(){
@@ -47,7 +53,7 @@ class AngularNowComponent {
 }
 
 export module angularNow {
-	export function module(name:string, dependencies: string[]){
+	export function module(name:string, dependencies?: string[]){
 		return new AngularNowModule(name, dependencies);
 	}
 }

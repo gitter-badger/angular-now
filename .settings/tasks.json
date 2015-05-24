@@ -15,7 +15,7 @@
 	"command": "tsc",
 
 	// Show the output window only if unrecognized errors occur. 
-	"showOutput": "always",
+	"showOutput": "silent",
 	
 	// Under windows use tsc.exe. This ensures we don't need a shell.
 	"windows": {
@@ -31,7 +31,6 @@
 	// in the output.
 	"problemMatcher": "$tsc"
 }
-
 // A task runner configuration for gulp. Gulp provides a less task
 // which compiles less to css. 
 /*

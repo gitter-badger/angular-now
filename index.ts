@@ -1,6 +1,6 @@
 /// <reference path="angular-now.ts" />
 
-import {Component, View} from "angular-now";
+import {angularNow, Component, View} from "angular-now";
 
 @Component({
   selector: 'my-app'
@@ -15,3 +15,4 @@ class MyAppComponent {
     this.name = 'Alice';
   }
 }
+angularNow.module('myApp', []).component(MyAppComponent);

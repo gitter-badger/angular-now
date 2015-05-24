@@ -18,5 +18,8 @@
   "homepage": "https://github.com/snarechops/angular-now",
   "dependencies": {
     "reflect-metadata": "^0.1.0"
+  },
+  "devDependencies": {
+    
   }
 }
